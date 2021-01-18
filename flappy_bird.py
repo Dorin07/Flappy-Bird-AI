@@ -1,11 +1,11 @@
-import pygame 
+import pygame
 import neat
 import time
 import os
 import random
 
-WIN_WIDTH = 600
-WIN_HEIGHT = 800 
+WIN_WIDTH = 500
+WIN_HEIGHT = 800
 
 BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png")))]
 PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe.png")))
@@ -48,7 +48,7 @@ class Bird:
         else:
             if self.tilt > -90:
                 self.tilt -= self.ROT_VEL
-    
+
     def draw(self, win):
         self.img_count += 1
 
@@ -89,11 +89,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-                pygame.quit()
-                quit()
 
+        bird.move()
         draw_window(win, bird)
-                
+
+    pygame.quit()
+    quit()
+
 main()
-    
-    
+
+
