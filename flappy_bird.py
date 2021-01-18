@@ -94,5 +94,6 @@ def main():
 
         draw_window(win, bird)
                 
+main()
     
     
