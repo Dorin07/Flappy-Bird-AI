@@ -13,10 +13,10 @@ BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base
 BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))
 
 class Bird:
-    imgs = BIRD_IMGS
-    max_rotation = 25
-    rot_vel = 20
-    animation_time = 5
+    IMGS = BIRD_IMGS
+    MAX_ROTATION = 25
+    ROT_VEL = 20
+    ANIMATION_TIME = 5
 
     def __init__(self, x, y):
         self.x = x
@@ -26,7 +26,7 @@ class Bird:
         self.vel = 0
         self.height = self.y
         self.img_count = 0
-        self.img = self.imgs[0]
+        self.img = self.IMGS[0]
 
     def jump(self):
         self.vel = -10.5
@@ -43,30 +43,30 @@ class Bird:
             d -= 2
         self.y = self.y + d
         if d < 0 or self.y < self.height + 50:
-            if self.tilt < self.max_rotation:
-                self.tilt = self.max_rotation
+            if self.tilt < self.MAX_ROTATION:
+                self.tilt = self.MAX_ROTATION
         else:
             if self.tilt > -90:
-                self.tilt -= self.rot_vel
+                self.tilt -= self.ROT_VEL
     
     def draw(self, win):
         self.img_count += 1
 
-        if self.img_count < self.animation_time:
-            self.img = self.imgs[0]
-        elif self.img_count < self.animation_time*2:
-            self.img = self.imgs[1]
-        elif self.img_count < self.animation_time*3:
-            self.img = self.imgs[2]
-        elif self.img_count < self.animation_time*4:
-            self.img = self.imgs[1]
-        elif self.img_count == self.animation_time*4 + 1:
-            self.img = self.imgs[0]
+        if self.img_count < self.ANIMATION_TIME:
+            self.img = self.IMGS[0]
+        elif self.img_count < self.ANIMATION_TIME*2:
+            self.img = self.IMGS[1]
+        elif self.img_count < self.ANIMATION_TIME*3:
+            self.img = self.IMGS[2]
+        elif self.img_count < self.ANIMATION_TIME*4:
+            self.img = self.IMGS[1]
+        elif self.img_count == self.ANIMATION_TIME*4 + 1:
+            self.img = self.IMGS[0]
             self.img_count = 0
 
         if self.tilt <= -80:
-            self.tilt = self.imgs[1]
-            self.img_count = self.animation_time*2
+            self.tilt = self.IMGS[1]
+            self.img_count = self.ANIMATION_TIME*2
 
         rotated_image = pygame.transform.rotate(self.img, self.tilt)
         new_rect = rotated_image.get_rect(center = self.img.get_rect(topleft= (self.x, self.y)).center)
