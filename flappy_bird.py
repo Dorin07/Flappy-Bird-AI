@@ -5,6 +5,10 @@ import os
 import random
 pygame.font.init()
 
+"""
+This is a game, with NEAT AI, inspired after techwithTim tutorial.
+"""
+
 WIN_WIDTH = 500
 WIN_HEIGHT = 800
 
