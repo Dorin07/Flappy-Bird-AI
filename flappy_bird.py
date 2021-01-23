@@ -6,7 +6,7 @@ import random
 pygame.font.init()
 
 """
-This is a game, with NEAT AI, inspired after techwithTim tutorial.
+This is a game, with NEAT AI, inspired after TechWithTim youtube tutorial series.
 """
 
 WIN_WIDTH = 500
