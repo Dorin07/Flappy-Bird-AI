@@ -6,7 +6,8 @@ import random
 pygame.font.init()
 
 """
-This is a game, with NEAT AI, inspired after TechWithTim youtube tutorial series.
+    This is a game, with NEAT AI, inspired after TechWithTim youtube tutorial series.
+    Generate 20 birds, which can go max 50 generations.
 """
 
 WIN_WIDTH = 500
@@ -168,9 +169,9 @@ def draw_window(win, birds, pipes, base, score, gen):
 
     pygame.display.update()
 
-'''
-Main is the fitness function to generate all generation of bird.
-'''
+"""
+    Main is the fitness function to generate all generation of bird.
+"""
 
 def main(genomes, config):
     global GEN
@@ -266,9 +267,11 @@ def run(config_path):
     stats = neat.StatisticsReporter()
     p.add_reporter(stats)
 
-    winner = p.run(main, 50)
+    """
+        Call the main function max 50 times.
+    """
 
-
+    winner = p.run(main, 50) 
 
 if __name__ == "__main__":
     local_dir = os.path.dirname(__file__)
