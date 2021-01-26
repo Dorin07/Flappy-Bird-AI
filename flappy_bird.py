@@ -254,6 +254,11 @@ def main(genomes, config):
                 ge.pop(x)
 
         base.move()
+
+        """
+            Move the base.
+        """
+
         draw_window(win, birds, pipes, base, score, GEN)
 
 def run(config_path):
@@ -269,6 +274,7 @@ def run(config_path):
 
     """
         Call the main function max 50 times.
+        Create max 50 generations, and if after that 50, the ai not find a good bird, give up.
     """
 
     winner = p.run(main, 50) 
