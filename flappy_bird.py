@@ -256,7 +256,7 @@ def main(genomes, config):
         base.move()
 
         """
-            Move the base.
+            Moving the base.
         """
 
         draw_window(win, birds, pipes, base, score, GEN)
