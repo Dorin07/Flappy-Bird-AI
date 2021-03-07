@@ -48,7 +48,6 @@ class Bird:
 
         if d >= 16:
             d = 16
-
         if d < 0:
             d -= 2
 
